@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
+    <script src="https://kit.fontawesome.com/dde8ecbd32.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.8/dist/lazyload.min.js"></script>
+  </head>
+    <header>
+    <div class="title" onclick="location.href='{{site.url}}';"><img src="{{ site.baseurl }}/assets/png/title2.png"></div>
+    <div class="extras">
+      <div class="pages">
+          <div class="wrapper">
+    {%- assign default_paths = site.pages | map: "path" -%}
+    {%- assign page_paths = site.minima.nav_pages | default: default_paths -%}
+    {%- assign page_titles = site.pages | map: 'title' | compact %}
+
+    {%- unless page_titles == empty %}
+      <nav class="site-nav">
+        <div class="drawer-container">
+          <div class="drawer">
+            {%- include nav-items.html paths = page_paths %}
+          </div>
+        </div>
+      </nav>
+    {%- endunless %}
+  </div>
+      </div>
+      <div class="icons">
+        <a href="https://x.com/misozune"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://bsky.app/profile/misozune.bsky.social"><i class="fa-brands fa-bluesky"></i></a>
+        <a href="https://www.youtube.com/@misozune"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/in/nikki-deseo-18443233b/"><i class="fa-brands fa-linkedin-in"></i></a>
+
+      </div>
+    </div>
+    
+  </header>
+  <body>
+    {{ content }}
+  </body>
+
+</html>
